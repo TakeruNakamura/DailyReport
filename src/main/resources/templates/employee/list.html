@@ -26,5 +26,7 @@
                 <td><a th:href="@{/employee/detail/{id}/(id=${employee.id})}">詳細を見る</a></td>
             </tr>
         </table>
+        <span th:text="'全件' + ${employeelist.size} + '件'"></span>
+
 </body>
 </html>

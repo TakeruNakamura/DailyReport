@@ -10,7 +10,8 @@
     <h2>従業員編集ページ</h2>
     <form method="post" th:action="@{/employee/update/{id}/(id=${employee.id})}" th:object="${employee}">
         <label for="code">社員番号</label>
-        <input type="text" th:field="*{authentication.code}" th:errorclass="err">
+        <span th:text="*{authentication.code}"></span>
+        <input type="hidden" th:field="*{authentication.code}" th:errorclass="err">
         <span th:errors="*{authentication.code}" class="err"></span>
         <br>
         <label for="name">氏名</label>
@@ -28,6 +29,7 @@
                 th:value="${item}" th:text="${item}" th:selected="*{authentication.role} == ${item}">
         </select>
         <br>
+        <a th:href="@{/employee/delete/{id}/(id=*{id})}">削除処理</a>
         <input type="submit" value="投稿">
         <a th:href="@{/employee/list}">一覧に戻る</a>
     </form>

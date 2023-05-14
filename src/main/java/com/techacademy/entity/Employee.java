@@ -11,11 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Where;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "employee")
+@Where(clause = "delete_flag = 0")
 public class Employee {
 
     /** 主キー。自動生成 */
